@@ -1,0 +1,92 @@
+:root {
+
+    --main-bg-color: #eff5fe;
+    --border-color: #0288d147;
+}
+
+body,
+html {
+
+    font-family: system-ui;
+    background-color: var(--main-bg-color);
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body,
+.drop-zone {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    /* For columnwise */
+}
+
+.drop-zone {
+
+    width: 500px;
+    min-height: 200px;
+    border: 2px dashed var(--border-color);
+    margin: 30px;
+    border-radius: 10px;
+
+}
+
+.upload-container {
+    background-color: #ffffff;
+    border-radius: 25px;
+    box-shadow: 8px 20px 20px #0000002e;
+}
+
+.icon-container {
+
+    /* we use relative for his normal position 
+    if we used absolute it relatively position 
+    by his body or first parent */
+    position: relative;
+    width: 70px;
+    height: 100px;
+
+
+
+
+}
+
+.icon-container img {
+
+    width: 70px;
+    /* position: relative; relative to his normal position (past position) */
+    position: absolute;
+    transform-origin: bottom;
+    transition: transform 250ms ease-in-out; 
+    /* // top:175px; */
+    /* relative to his  first parent position */
+
+}
+
+.dragged .icon-container .center {
+    z-index: 2;
+
+    /* for center to uper */
+}
+
+.icon-container .right .icon-container .left {
+    filter: grayscale(.5);
+    transform: scale(.9);
+}
+
+.dragged .icon-container .right {
+    transform: rotate(10deg) translateX(10px) scale(.9);
+
+}
+
+.dragged .icon-container .left {
+    transform: rotate(-10deg) translateX(-10px) scale(.9);
+
+}
+
+.dragged .icon-container .center {
+    transform: translateY(-5px);
+}
